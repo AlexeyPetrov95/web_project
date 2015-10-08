@@ -24,7 +24,7 @@
   font-weight: 700; }
   
 a {
-    color: #fff;
+    color: #000;
 }
 a:hover, a:focus {
     color: #41b3f1;
@@ -180,9 +180,8 @@ ul.social-icons li.vk a:hover{
 background-color:#4e729a
 }
 .copyright, .nav {
-    background-color: #252525;
-    border-top-color: #333333;
-	color: #fff;
+
+	color: #252525;
 }
 .copyright {
     padding: 15px 0;
@@ -206,7 +205,7 @@ background-color:#4e729a
     max-width: 50%;
 }
 .copyright a {
-    color: #ffffff;
+    color: #000;
 }
 .nopadding {
    padding: 0 !important;
