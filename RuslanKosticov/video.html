@@ -5,13 +5,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Видео - Руслан Костин</title>
-	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/font-awesome.min.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
 
 				
-	<link href='https://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 	<!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -27,7 +27,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand text-uppercase" href="#"><strong>Руслан</strong>Костин</a>
+      <span class="navbar-brand text-uppercase" href="#"><strong>Руслан</strong><span class="thin">Костин</span></span>
     </div>
     <nav class="collapse navbar-collapse" id="bs-navbar">
 			<ul class="nav navbar-nav navbar-right">
@@ -59,9 +59,9 @@
 <div class="container">
 	<div class="row">
 		<div class="maincarousel">
-		  <div><img src="img/1.jpg" alt="Main photo"/></div>
-		  <div><img src="img/2.jpg" alt="Main photo"/></div>
-		  <div><img src="img/1.jpg" alt="Main photo"/></div>
+		  <div><img src="img/main/1.jpg" alt="Руслан Костин - ведущий корпоративных мероприятий"/></div>
+		  <div><img src="img/main/2.jpg" alt="Руслан Костин - свадебный ведущий"/></div>
+		  <div><img src="img/main/3.jpg" alt="Руслан Костин - актер"/></div>
 		</div>
 	</div>
 	<div class="row">
@@ -70,17 +70,17 @@
 			<div class="row">
 						<div class="col-md-4">
 							<div class="embed-responsive embed-responsive-4by3 thumbnail">
-							  <iframe class="embed-responsive-item" src="..."></iframe>
+							  <iframe class="embed-responsive-item" src="https://vk.com/video_ext.php?oid=71368147&id=171360389&hash=b9fe5c078e40836f&hd=2" frameborder="0"></iframe>
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="embed-responsive embed-responsive-4by3 thumbnail">
-							  <iframe class="embed-responsive-item" src="..."></iframe>
+							  <iframe class="embed-responsive-item" src="https://vk.com/video_ext.php?oid=152024762&id=167591346&hash=9210d14bce278bab&hd=1"frameborder="0"></iframe>
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="embed-responsive embed-responsive-4by3 thumbnail">
-							  <iframe class="embed-responsive-item" src="..."></iframe>
+							  <iframe class="embed-responsive-item" src="https://vk.com/video_ext.php?oid=152024762&id=167575638&hash=3ef5aa503e31d84e&hd=2" frameborder="0"></iframe>
 							</div>
 						</div>
 			</div>
@@ -91,6 +91,11 @@
 	</div>
 </div>
 <div id="footer-wrap">
+<div class="parallax-container mobile">
+	<div class="parallax">
+		<img src="img/parallax.jpg"/>
+	</div>
+</div>
 	<footer class="copyright">
 		<div class="container">
 			<div class="text-left"><strong>©2015 Руслан Костин · Актер. Ведущий. Человек.</strong></div>
@@ -110,17 +115,21 @@
 <script src="js/jquery-2.1.1.min.js"></script> 
 <script type="text/javascript" src="slick/slick.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/parallax.js"></script>
 <script>
 $(document).ready(function(){
-  $('.maincarousel').slick({
-  arrows: false,
-  dots: false,
-  infinite: true,
-  speed: 500,
-  fade: true,
-  cssEase: 'linear',
-  adaptiveHeight: true
-});
+
+	$('.parallax').parallax();
+
+	$('.maincarousel').slick({
+	arrows: false,
+	dots: false,
+	infinite: true,
+	speed: 500,
+	fade: true,
+	cssEase: 'linear',
+	adaptiveHeight: true
+	});
 });
 </script>
 </body>
