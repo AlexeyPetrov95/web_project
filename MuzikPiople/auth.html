@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <title>Авторизация</title>
+    <!-- CSS  -->
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/reg.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  </head>
+  <body class="full-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 cyan-text center">
+        <h1>✪</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col l4 offset-l4 m6 offset-m3 s12 offset-s0">
+        <div class="card black opacity-50 no-border">
+          <div class="card-content white-text">
+            <form novalidate="novalidate" method="post" id="contact" class="form"
+            action="http://jellythemes.com/themes/sonorama/mail.php">
+              <div class="row">
+                <div class="input-field  col s12">
+                  <input id="first_name" placeholder="Логин или Email" type="text" class="validate" minlength="6" />
+                </div>
+                <div class="input-field  col s12">
+                  <input id="password" placeholder="Пароль" type="password" class="validate" minlength="6" />
+                </div>
+                <div class="section center">
+                  <button class="btn light-blue darken-1 waves-effect waves-dark" type="submit" name="action">Войти</button>
+                </div>
+                <div class="section center">
+                    <a class="modal-trigger" href="#modal1">Забыли пароль?</a>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div>
+          <p class="center-align white-text">Вы еще не с нами? 
+          <a href="reg.html">Регистрация</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div id="modal1" class="modal">
+    <div class="row">
+      <div class="card white">
+        <div class="card-content">
+          <div class="card-title black-text">Сброс пароля</div>
+          <form novalidate="novalidate" method="post" id="contact" class="form" action="http://jellythemes.com/themes/sonorama/mail.php">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="first_name" placeholder="Логин или Email" type="text" class="validate" minlength="6" />
+              </div>
+              <div class="col s12 center">
+                <button class="btn light-blue darken-1 waves-effect waves-dark modal-close" type="submit" name="action">Сбросить
+                пароль</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  Scripts-->
+  <script src="js/jquery-2.1.1.min.js"></script> 
+  <script src="js/materialize.js"></script> 
+  <script src="js/modernizr.min.js"></script> 
+  <script src="js/init.js"></script> 
+    <script>
+	  $(document).ready(function() {
+    $('select').material_select();
+  });
+  $(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+  });
+   $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+  </script></body>
+</html>

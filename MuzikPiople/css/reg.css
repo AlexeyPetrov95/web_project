@@ -1,0 +1,11 @@
+.full-bg {
+    background: #32383d url("../img/full-bg.jpg") repeat scroll center 0% / cover ;
+    padding-top: 0;
+    position: relative;
+    text-align: center;
+}
+.modal {
+top: 30%!important;
+background-color: transparent!important;
+width: 25%;
+}

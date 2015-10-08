@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="generator"
+    content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
+    <meta name="generator" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <title>Регистрация</title>
+    <!-- CSS  -->
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/reg.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  </head>
+  <body class="full-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 cyan-text center">
+        <h1>✪</h1>
+        <h3 class="white-text">Регистрация</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col l4 offset-l4 s12 offset-s0">
+        <div class="card black opacity-50 no-border">
+          <div class="card-content white-text">
+            <form novalidate="novalidate" method="post" id="contact" class="form"
+            action="http://jellythemes.com/themes/sonorama/mail.php">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="first_name" placeholder="Логин" type="text" class="validate tooltipped" minlength="8"
+                  data-position="right" data-delay="50" data-tooltip="Не менее 6 символов" />
+                </div>
+                <div class="input-field col s12">
+                  <input id="second_name" placeholder="Ваше имя или пвсевдоним" type="text"
+                  class="validate tooltipped" minlength="8" data-position="right" data-delay="50"
+                  data-tooltip="Не менее 3 символов" />
+                </div>
+                <div class="input-field col s12">
+                  <select class="validate">
+                    <option value="" disabled="disabled" selected="selected">Ваш профиль</option>
+                    <option value="1">Музыкант</option>
+                    <option value="2">Специалист</option>
+                    <option value="3">Продюссер</option>
+                  </select>
+                </div>
+                <div class="input-field col s12">
+                  <input id="email" placeholder="Email" type="email" class="validate tooltipped" minlength="8"
+                  data-position="right" data-delay="50" data-tooltip="Не менее 6 символов" />
+                </div>
+                <div class="input-field col s12">
+                  <input id="password" placeholder="Пароль" type="password" class="validate tooltipped" minlength="8"
+                  data-position="right" data-delay="50" data-tooltip="Не менее 6 символов" />
+                </div>
+                <div class="col s12 section">
+                  <p>
+                  <input type="checkbox" id="test5" class="white-text" /> 
+                  <label for="test5">Я принимаю 
+                  <a href="">Условия пользования</a> и 
+                  <a href="">Политику конфиденциальности</a>.</label></p>
+                </div>
+                <div class="section center">
+                  <button class="btn light-blue darken-1 waves-effect waves-dark" type="submit" name="action">Регистрация</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div>
+          <p class="center-align white-text">Уже зарегестрированы? 
+          <a href="auth.html">Авторизация</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  Scripts-->
+  <script src="js/jquery-2.1.1.min.js"></script> 
+  <script src="js/materialize.js"></script> 
+  <script src="js/modernizr.min.js"></script> 
+  <script src="js/init.js"></script> 
+    <script>
+	  $(document).ready(function() {
+    $('select').material_select();
+  });
+  $(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+  });
+      
+  </script></body>
+</html>

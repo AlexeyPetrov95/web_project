@@ -1,0 +1,321 @@
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+			<title>Список пользователей</title>
+			<!-- CSS	-->
+			<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+			<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+			
+			<link href="css/workplace/slick.css" type="text/css" rel="stylesheet" />
+			<link href="css/workplace/slick-theme.css" type="text/css" rel="stylesheet" />
+		</head>
+		<body>
+		<div class="navbar-fixed">
+		<nav class="black" role="navigation">
+			<div class="nav-wrapper container">
+				<a id="logo-container" href="#" class="brand-logo">MUZIKPE<span>✪</span>PLE</a>
+				<ul class="right hide-on-med-and-down">
+					<li><a href="workplace.html" class="active">Профиль</a></li>
+					<li><a href="map.html">Карта</a></li>
+					<li>
+					<a class="dropdown-button" href="#!" data-activates="dropdown1" data-constrainwidth="false">Люди<i class="material-icons right">arrow_drop_down</i></a>
+						<ul id="dropdown1" class="dropdown-content">
+							<li><a href="userlist.html">Музыканты</a></li>
+							<li><a href="#">Специалисты</a></li>
+							<li><a href="#">Продюссеры</a></li>
+						</ul>
+					</li>
+					<li>
+					<a class="dropdown-button" href="#!" data-activates="dropdown2" data-constrainwidth="false">Места<i class="material-icons right">arrow_drop_down</i></a>
+						<ul id="dropdown2" class="dropdown-content">
+							<li><a href="placeprofile.html">Точки</a></li>
+							<li><a href="#">Студии</a></li>
+							<li><a href="#">Магазины</a></li>
+							<li><a href="#">Концертные площадки</a></li>
+						</ul>
+					</li>
+					<li><a href="afisha.html">Афиша</a></li>
+					<li>
+					<a class="dropdown-button" href="#!" data-activates="dropdown-usermenu" data-constrainwidth="false">
+						<ul class="avatars">
+						<li class="avatars-item avatar"><img src="./img/workplace/userimg/guy-6.jpg" alt="" class="circle" /> Hiops <i class="material-icons right">arrow_drop_down</i></li>
+						</ul>
+					</a>
+						<ul id="dropdown-usermenu" class="dropdown-content">
+							<li class="active"><a href="">Моя страница <i class="material-icons md-18">dashboard</i></a></li>
+							<li><a href="">Моя музыка <i class="material-icons md-18">music_note</i></a></li>
+							<li><a href="useredit.html">Настройки <i class="material-icons md-18">settings</i></a></li>
+							<li><a href="">Выйти</a></li>
+						</ul>
+					</li>
+					<li><a href="auth.html" class="btn light-blue darken-1 waves-effect waves-dark">Войти</a></li>
+				</ul>
+
+				<ul id="nav-mobile" class="side-nav">
+					<li><a href="#">Navbar Link</a></li>
+				</ul>
+				<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+			</div>
+		</nav>
+
+		</div>
+	    <div class="container">
+	        <div class="section">
+	            <div class="row">
+	                <div class="col s12 m8 l9">
+	                    <div class="card">
+	                        <!-- Progress table -->
+	                        <div class="card-content">
+							
+			<table class="responsive-table">
+	        <thead>
+	          <tr>
+	              <th data-field="id">
+	      <input type="checkbox" id="main" />
+	      <label for="main"></label>
+				  </th>
+	              <th data-field="avatar">Аватар</th>
+	              <th data-field="name">Имя</th>
+				  <th data-field="job">Работа</th>
+	              <th data-field="contact">Контакты</th>
+	              <th data-field="location">Адресс</th>
+	              <th data-field="moderate">Действия</th>
+	          </tr>
+	        </thead>
+
+	        <tbody>
+	          <tr>
+	            <td>      <input type="checkbox" id="main2" />
+				<label for="main2"></label></td>
+	            <td><img width="40" class="circle" src="./img/workplace/userimg/guy-5.jpg"></td>
+	            <td>Hiops Nerevar</td>
+	            <td>Музыкант</td>
+	            <td> <a title="" class="btn-floating btn-flat white" href="#"><i class="material-icons md-18 black-text">phone</i></a></td>
+	            <td>Санкт-Петербург, РФ <a title="" class="" href="#"> <i class="material-icons md-13 black-text">place</i></a></td>
+	            <td>
+				<a title="" class="btn-floating btn-flat white" href="#"><i class="material-icons md-18 black-text">edit</i></a>
+	            <a title="" class="btn-floating btn-flat white" href="#"><i class="material-icons md-18 red-text">delete</i></a></td>
+	          </tr>
+	          <tr>
+	            <td>      
+				<input type="checkbox" id="main3" />
+				<label for="main3"></label></td>
+	            <td><img width="40" class="circle" src="./img/workplace/userimg/guy-3.jpg"></td>
+	            <td>Ben Bruce</td>
+	            <td>Продюссер</td>
+	            <td><a title="" class="btn-floating btn-flat white" href="#"><i class="material-icons md-18 black-text">phone</i></a></td>
+	            <td>London, GB <a title="" class="" href="#"> <i class="material-icons md-13 black-text">place</i></a></td>
+	            <td>
+				<a title="" class="btn-floating btn-flat white" href="#"><i class="material-icons md-18 black-text">edit</i></a>
+	            <a title="" class="btn-floating btn-flat white" href="#"><i class="material-icons md-18 red-text">delete</i></a></td>
+	          </tr>
+	        </tbody>
+	      </table>
+	                        </div>
+	                        <!-- // Progress table -->
+	                         <ul class="pagination">
+	    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+	    <li class="active"><a href="#!">1</a></li>
+	    <li class="waves-effect"><a href="#!">2</a></li>
+	    <li class="waves-effect"><a href="#!">3</a></li>
+	    <li class="waves-effect"><a href="#!">4</a></li>
+	    <li class="waves-effect"><a href="#!">5</a></li>
+	    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+	  </ul>
+	                    </div>                    
+	                </div>
+	                <div class="col s12 m4 l3">
+							<div class="collection">
+							<a class="collection-item light-blue darken-1 waves-effect waves-dark active" href="workplace.html">Профиль</a> 
+							<a class="collection-item waves-effect waves-dark" href="">Мои группы</a> 
+							<a class="collection-item waves-effect waves-dark" href="">Мои демо</a> 
+							<a class="collection-item waves-effect waves-dark" href="">Messages</a> 
+							<a class="collection-item waves-effect waves-dark red lighten-3 black-text" href=""><i class="material-icons md-18 valign">exit_to_app</i> Выйти</a>
+							</div>
+
+					<h5>Наши артисты</h5>
+					<div class="ads-slider">
+						<div class="item">
+							<a href="" class="black-text">
+								<div class="card">
+									<div class="card-content">
+										<div class="row">
+											<div class="col s4">
+												<img src="./img/workplace/userimg/guy-6.jpg" alt="" class="responsive-img" />
+											</div>
+											<div class="clo s8">
+												<span class="black-text">Музторг</span>
+												<br />
+												<span class="grey-text darken-4">Лучшие инструменты по доступным
+												ценам</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a href="" class="black-text">
+								<div class="card">
+									<div class="card-content">
+										<div class="row">
+											<div class="col s4">
+												<img src="./img/workplace/userimg/guy-6.jpg" alt="" class="responsive-img" />
+											</div>
+											<div class="clo s8">
+												<span class="black-text">Музторг</span>
+												<br />
+												<span class="grey-text darken-4">Лучшие инструменты по доступным
+												ценамценамценамценамценамценамценамценам</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a href="" class="black-text">
+								<div class="card-panel">
+									<div class="card-content">
+										<div class="row">
+											<div class="col s4">
+												<img src="./img/workplace/userimg/guy-6.jpg" alt="" class="responsive-img" />
+											</div>
+											<div class="clo s8">
+												<span class="black-text">Музторг</span>
+												<br />
+												<span class="grey-text darken-4">Лучшие инструменты по доступным
+												ценам</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>					<h5>Реклама партнеров</h5>
+ <div class="ads">
+						<div class="item">
+							<a href="" class="black-text">
+								<div class="card">
+									<div class="card-content">
+										<div class="row">
+											<div class="col s4">
+												<img src="./img/workplace/userimg/guy-6.jpg" alt="" class="responsive-img" />
+											</div>
+											<div class="col s8">
+												<span class="black-text">Музторг</span>
+												<br />
+												<span class="grey-text darken-4">Лучшие инструменты по доступным
+												ценам</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a href="" class="black-text">
+								<div class="card">
+									<div class="card-content">
+										<div class="row">
+											<div class="col s4">
+												<img src="./img/workplace/userimg/guy-6.jpg" alt="" class="responsive-img" />
+											</div>
+											<div class="col s8">
+												<span class="black-text">Музторг</span>
+												<br />
+												<span class="grey-text darken-4">Лучшие инструменты по доступным
+												ценамценам ценамценам ценам ценамцена мценам</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="item">
+							<a href="" class="black-text">
+								<div class="card">
+									<div class="card-content">
+										<div class="row">
+											<div class="col s4">
+												<img src="./img/workplace/userimg/guy-6.jpg" alt="" class="responsive-img" />
+											</div>
+											<div class="col s8">
+												<span class="black-text">Музторг</span>
+												<br />
+												<span class="grey-text darken-4">Лучшие инструменты по доступным
+												ценам</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+	            </div>
+	        </div>
+	    </div>
+
+<footer class="page-footer grey darken-4">
+    <div class="container grey-text darken-1">
+      <div class="row">
+        <div class="col l3 s12">
+          <h6 class="grey-text darken-1"><strong>Сервисы</strong></h6>
+          <ul>
+		  <li><a class="grey-text" href="#!">Поиск</a></li>
+            <li><a class="grey-text" href="#!">Музыка</a></li>
+            <li><a class="grey-text" href="#!">Сообщество</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h6 class="grey-text darken-1"><strong>О нас</strong></h6>
+          <ul>
+            <li><a class="grey-text" href="#!">Блог</a></li>
+            <li><a class="grey-text" href="#!">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h6 class="grey-text darken-1"><strong>Поддержка</strong></h6>
+          <ul>
+            <li><a class="grey-text" href="#!">Помощь</a></li>
+            <li><a class="grey-text" href="./docs/terms.html">Условия использования</a></li>
+            <li><a class="grey-text" href="./docs/policy.html">Политика конфеденциальности</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright black"><div class="container">© 2015 MusicPeople</div></div>
+</footer>
+
+	<div id="hellopreloader"><div id="hellopreloader_preload"></div></div>
+	  <!--  Scripts-->
+	  <script src="js/preload.js"></script> 
+	  <script src="js/jquery-2.1.1.min.js"></script> 
+	  <script src="js/materialize.js"></script> 
+	  <script src="js/modernizr.min.js"></script> 
+	  <script src="js/init.js"></script>
+	  <script src="js/slick.min.js"></script> 
+	  	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".ads-slider").slick({
+				dots: true,
+				arrows: false,
+				infinite: true,
+				rows: 1,
+				speed: 500,
+				slidesToShow: 1,
+				autoplay: true,
+				autoplaySpeed: 5000,
+		});
+		});
+	
+</script>
+	  </body>
+	</html>
+
