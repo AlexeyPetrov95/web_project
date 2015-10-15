@@ -23,6 +23,9 @@
   src: url("../fonts/roboto/Roboto-Bold.woff2") format("woff2"), url("../fonts/roboto/Roboto-Bold.woff") format("woff"), url("../fonts/roboto/Roboto-Bold.ttf") format("truetype");
   font-weight: 700; }
   
+.navbar-toggle .icon-bar {
+    background-color: #000;
+}
 a {
     color: #000;
 }
@@ -547,4 +550,56 @@ h1.secondary, .h1.secondary, h2.secondary, .h2.secondary, h3.secondary, .h3.seco
     min-height: 150px;
 }
 
-
+.sales-block h1 {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 32px;
+    text-align: center;
+	font-family: "Roboto";
+	font-weight: 300;
+	letter-spacing: -3px;
+}
+.sales-block p {
+    color: #fff;
+}
+.sales-block .circle {
+    height: 200px;
+}
+.sales-block:hover .circ.sales {
+    font-size: 115px;
+    height: 200px;
+    line-height: 55px;
+    width: 200px;
+	top: 0;
+    transform: rotate(5deg);
+}
+.circ.sales {
+    font-size: 65px;
+    height: 150px;
+    line-height: 41px;
+    width: 150px;
+	top: 25px;
+    font-family: "Roboto";
+    font-weight: 700;
+    transform: rotate(15deg);
+    position: relative;
+	transition: all 0.3s ease;
+}
+.circ small {
+    font-size: 20px;
+}
+.winter {
+	background: #62caff;
+}
+.winter .circ {
+	color: #62caff;
+}
+.fall {
+	background: #ff9262;	
+}
+.fall .circ {
+	color: #ff9262;	
+}
+.white {
+    background-color: rgba(255, 255, 255, 0.78)!important;
+}

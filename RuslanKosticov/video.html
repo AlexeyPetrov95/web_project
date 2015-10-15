@@ -49,7 +49,6 @@
 		<ul class="social-icons">
 			<li class="skype"><a class="item" href="skype:ramzessss95?call"><i class="fa fa-skype"></i><i class="fa fa-skype"></i></a></li>
 			<li class="instagram"><a class="item" target="_blank" href="https://instagram.com/ruslankostin5555/"><i class="fa fa-instagram"></i><i class="fa fa-instagram"></i></a></li>
-			<li class="twitter"><a class="item" target="_blank" href="https://twitter.com/vadim_korobkov"><i class="fa fa-twitter"></i><i class="fa fa-twitter"></i></a></li>
 			<li class="facebook"><a class="item" target="_blank" href="https://www.facebook.com/profile.php?id=100001745273382"><i class="fa fa-facebook"></i><i class="fa fa-facebook"></i></a></li>
 			<li class="vk"><a class="item" target="_blank" href="https://vk.com/id152024762"><i class="fa fa-vk"></i><i class="fa fa-vk"></i></a></li>
 		</ul>
@@ -86,7 +85,29 @@
 			</div>
 		</div>
 		<div class="col-md-3 nopadding">
-		<h2 class="title">Мой Twitter</h2>
+		<h2 class="title">Акции</h2>
+			<div class="sales-block">
+				<div>
+					<div class="panel panel-default winter">
+					  <div class="panel-body">
+						<h1>Зимнии скидки</h1>
+						<p>При заказе свадеб на 2016 год.</p>
+						<p class="circle text-center"><i class="circ sales tertiary white"><small>Скидка</small><br />20%</i></p>
+						<p class="text-right"><small>Срок проведения акции:<br />до 1 марта 2016 года.</small></p>
+					  </div>
+					</div>
+				</div>
+				<div>
+					<div class="panel panel-default fall">
+					  <div class="panel-body">
+						<h1>Осенние скидки</h1>
+						<p>При заказе Новогодних корпаративов.</p>
+						<p class="circle text-center"><i class="circ sales tertiary white"><small>Скидка</small><br />20%</i></p>
+						<p class="text-right"><small>Срок проведения акции:<br />до 1 декабря 2015 года.</small></p>
+					  </div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -103,7 +124,6 @@
 				<ul class="social-icons">
 					<li class="skype"><a class="item" href="skype:ramzessss95?call"><i class="fa fa-skype"></i><i class="fa fa-skype"></i></a></li>
 					<li class="instagram"><a class="item" target="_blank" href="https://instagram.com/ruslankostin5555/"><i class="fa fa-instagram"></i><i class="fa fa-instagram"></i></a></li>
-					<li class="twitter"><a class="item" target="_blank" href="https://twitter.com/vadim_korobkov"><i class="fa fa-twitter"></i><i class="fa fa-twitter"></i></a></li>
 					<li class="facebook"><a class="item" target="_blank" href="https://www.facebook.com/profile.php?id=100001745273382"><i class="fa fa-facebook"></i><i class="fa fa-facebook"></i></a></li>
 					<li class="vk"><a class="item" target="_blank" href="https://vk.com/id152024762"><i class="fa fa-vk"></i><i class="fa fa-vk"></i></a></li>
 				</ul>
@@ -120,16 +140,26 @@
 $(document).ready(function(){
 
 	$('.parallax').parallax();
-
+	
 	$('.maincarousel').slick({
 	arrows: false,
 	dots: false,
 	infinite: true,
+	autoplay: true,
+	autoplaySpeed: 5000,
 	speed: 500,
 	fade: true,
-	cssEase: 'linear',
 	adaptiveHeight: true
 	});
+	
+	$('.sales-block').slick({
+	arrows: false,
+	infinite: true,
+	autoplay: true,
+	autoplaySpeed: 5000,
+	speed: 500,
+	});
+	
 });
 </script>
 </body>
