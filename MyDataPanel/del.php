@@ -1,5 +1,5 @@
 <?php
-	include_once 'header.php';
+	include_once ($_SERVER['DOCUMENT_ROOT'].'/template/header.php');
 ?>
 <div class="container">
 <?php
@@ -11,5 +11,5 @@
 ?>
 </div>
 <?php
-	include_once 'footer.php';
+	include_once ($_SERVER['DOCUMENT_ROOT'].'/template/footer.php');
 ?>
