@@ -33,6 +33,10 @@ a:hover, a:focus {
     color: #41b3f1;
     text-decoration: underline;
 }
+.text-white {
+	color:white;
+	font-family: "Roboto";
+}
 .title {
     background: #41b3f1;
     padding: 8px;
