@@ -52,11 +52,13 @@ JHtml::_('behavior.caption');
 
 			<div class="row items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row; ?>">
 		<?php endif; ?>
-				<article class="card white item col l6 column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished"' : null; ?>">
+				<article class="col l6 m12 s12 column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished"' : null; ?>">
+					<div class="card white">
 					<?php
 							$this->item = &$item;
 							echo $this->loadTemplate('item');
 					?>
+					</div>
 				</article>
 		<?php $counter++; ?>
 			<?php if (($rowcount == $this->columns) or ($counter == $introcount)) : ?>

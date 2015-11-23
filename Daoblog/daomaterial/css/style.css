@@ -2,34 +2,44 @@
 h1 {
   font-size: 32px;
   line-height: 110%;
-  margin: 2.1rem 0 1.68rem 0; }
+  margin: 0 0 1.68rem 0; }
 
 h2 {
   font-size: 25px;
   line-height: 110%;
-  margin: 1.78rem 0 1.424rem 0; }
+  margin: 0; }
 
 h3 {
   font-size: 20px;
   line-height: 110%;
-  margin: 1.46rem 0 1.168rem 0; }
+  margin: 1rem 0 1rem 0; }
 
 h4 {
   font-size: 2.28rem;
   line-height: 110%;
-  margin: 1.14rem 0 0.912rem 0; }
+  margin: 0; }
 
 h5 {
   font-size: 1.64rem;
   line-height: 110%;
-  margin: 0.82rem 0 0.656rem 0; }
+  margin: 0; }
 
 h6 {
   font-size: 1rem;
   line-height: 110%;
-  margin: 0.5rem 0 0.4rem 0; }
+  margin: 0; }
 
-  
+ul.card-action-buttons {
+    margin: -26px 10px 0 0;
+    text-align: right;
+}
+ul.card-action-buttons li {
+    display: inline-block;
+    padding-left: 5px;
+}
+.card .card-content {
+    padding: 5px 10px;
+}
 .material-icons.md-18 { font-size: 18px; }
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
@@ -63,6 +73,41 @@ a.brand-logo{
 
 nav .nav-wrapper {
     padding: 0 30px;
+}
+
+.nav-child  a {
+    padding-left: 50px;
+}
+/* Tooltips */
+div.tooltip {
+	float: left;
+	background: #ffc;
+	border: 1px solid #D4D5AA;
+	padding: 5px;
+	max-width: 200px;
+	z-index:13000;
+}
+
+div.tooltip h4 {
+	padding: 0;
+	margin: 0;
+	font-size: 95%;
+	font-weight: bold;
+	margin-top: -15px;
+	padding-top: 15px;
+	padding-bottom: 5px;
+	background: url(../images/selector-arrow.png) no-repeat;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: .25em;
+    line-height: 14px;
+}
+.icon-apply:before, .icon-edit:before, .icon-pencil:before {
+    content: "\2b";
 }
 /* ++++++++++++++  blog  ++++++++++++++ */
 
@@ -102,28 +147,4 @@ nav .nav-wrapper {
     float: right;
     width: 29%;
     padding: 0 5px
-}
-
-.items-row {
-    overflow: hidden;
-    margin-bottom: 10px !important;
-}
-
-.column-1,
-.column-2,
-.column-3 {
-    padding: 10px 5px
-}
-
-.column-2 {
-    width: 55%;
-    margin-left: 40%;
-}
-
-.column-3 {
-    width: 30%
-}
-
-.blog-more {
-    padding: 10px 5px
 }

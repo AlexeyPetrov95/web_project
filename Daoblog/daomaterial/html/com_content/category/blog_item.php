@@ -21,6 +21,29 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 	|| ((strtotime($this->item->publish_down) < strtotime(JFactory::getDate())) && $this->item->publish_down != JFactory::getDbo()->getNullDate())) : ?>
 <div class="system-unpublished">
 <?php endif; ?>
+
+<div class="card-image waves-effect waves-block waves-light">
+<?php  if (isset($images->image_intro) and !empty($images->image_intro)) { ?>
+	<?php $imgfloat = (empty($images->float_intro)) ? $params->get('float_intro') : $images->float_intro; ?>
+	
+	<img
+		<?php if ($images->image_intro_caption):
+			echo 'class="caption"'.' title="' .htmlspecialchars($images->image_intro_caption) .'"';
+		endif; ?>
+		src="<?php echo htmlspecialchars($images->image_intro); ?>" alt="<?php echo htmlspecialchars($images->image_intro_alt); ?>"/>
+		<?php } else { ?>
+		<img src="images/headers/windows.jpg"/>
+	<?php } ?>
+</div>
+<?php if ($canEdit) : ?>
+	<ul class="card-action-buttons">
+		<?php if ($canEdit) : ?>
+		<li class="edit-icon btn-floating waves-effect waves-light red">
+			<?php echo JHtml::_('icon.edit', $this->item, $params, array(), true); ?>
+		</li>
+		<?php endif; ?>
+	</ul>
+<?php endif; ?>
 <div class="card-content">
 <?php if ($params->get('show_title')) : ?>
 	<h2><span class="card-title">
@@ -34,26 +57,6 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 	</h2>
 <?php endif; ?>
 
-<?php if ($params->get('show_print_icon') || $params->get('show_email_icon') || $canEdit) : ?>
-	<ul class="actions">
-		<?php if ($params->get('show_print_icon')) : ?>
-		<li class="print-icon">
-			<?php echo JHtml::_('icon.print_popup', $this->item, $params, array(), true); ?>
-		</li>
-		<?php endif; ?>
-		<?php if ($params->get('show_email_icon')) : ?>
-		<li class="email-icon">
-			<?php echo JHtml::_('icon.email', $this->item, $params, array(), true); ?>
-		</li>
-		<?php endif; ?>
-		<?php if ($canEdit) : ?>
-		<li class="edit-icon">
-			<?php echo JHtml::_('icon.edit', $this->item, $params, array(), true); ?>
-		</li>
-		<?php endif; ?>
-	</ul>
-<?php endif; ?>
-
 <?php if (!$params->get('show_intro')) : ?>
 	<?php echo $this->item->event->afterDisplayTitle; ?>
 <?php endif; ?>
@@ -62,78 +65,58 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 
 <?php // to do not that elegant would be nice to group the params ?>
 
-<?php  if (isset($images->image_intro) and !empty($images->image_intro)) : ?>
-	<?php $imgfloat = (empty($images->float_intro)) ? $params->get('float_intro') : $images->float_intro; ?>
-	<div class="img-intro-<?php echo htmlspecialchars($imgfloat); ?>">
-	<img
-		<?php if ($images->image_intro_caption):
-			echo 'class="caption"'.' title="' .htmlspecialchars($images->image_intro_caption) .'"';
-		endif; ?>
-		src="<?php echo htmlspecialchars($images->image_intro); ?>" alt="<?php echo htmlspecialchars($images->image_intro_alt); ?>"/>
-	</div>
-<?php endif; ?>
-<div class="card-content"><?php echo $this->item->introtext; ?></div>
+<?php echo $this->item->introtext; ?>
+</div>
 
 
-<?php if (($params->get('show_author')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_modify_date')) or ($params->get('show_publish_date')) or ($params->get('show_parent_category')) or ($params->get('show_hits'))) : ?>
- 
-  
-<?php endif; ?>
+<div class="card-action">
+
 <?php if ($params->get('show_parent_category') && $this->item->parent_id != 1) : ?>
-		
 			<?php $title = $this->escape($this->item->parent_title);
-				$url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_id)) . '">' . $title . '</a>'; ?>
-			<?php if ($params->get('link_parent_category')) : ?>
-				<?php echo JText::sprintf('/', $url); ?>
+				$title = ($title) ? $title : JText::_('JGLOBAL_UNCATEGORISED');
+				$url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->parent_slug)) . '">' . $title . '</a>'; ?>
+			<?php if ($params->get('link_parent_category') and $this->item->parent_slug) : ?>
+				<?php echo JText::sprintf('COM_CONTENT_PARENT', $url); ?>
 				<?php else : ?>
-				<?php echo JText::sprintf('/', $title); ?>
+				<?php echo JText::sprintf('COM_CONTENT_PARENT', $title); ?>
 			<?php endif; ?>
-		
 <?php endif; ?>
+
 <?php if ($params->get('show_category')) : ?>
-		
-			<?php $title = $this->escape($this->item->category_title);
-					$url = '<a href="' . JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catid)) . '">' . $title . '</a>'; ?>
-			<?php if ($params->get('link_category')) : ?>
-				<?php echo JText::sprintf('/', $url); ?>
+			<?php 	$title = $this->escape($this->item->category_title);
+					$title = ($title) ? $title : JText::_('JGLOBAL_UNCATEGORISED');
+					$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)).'">'.$title.'</a>';?>
+			<?php if ($params->get('link_category') and $this->item->catslug) : ?>
+				<?php echo JText::sprintf($url); ?>
 				<?php else : ?>
-				<?php echo JText::sprintf('/', $title); ?>
+				<?php echo JText::sprintf($title); ?>
 			<?php endif; ?>
 		
 <?php endif; ?>
 <?php if ($params->get('show_create_date')) : ?>
-		
-		<?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC1'))); ?>
-		
+		/ <?php echo JText::sprintf(JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC1'))); ?>
 <?php endif; ?>
+
 <?php if ($params->get('show_modify_date')) : ?>
-		
-		<?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', JHtml::_('date', $this->item->modified, JText::_('DATE_FORMAT_LC1'))); ?>
-		
+		/ <?php echo JText::sprintf(JHtml::_('date', $this->item->modified, JText::_('DATE_FORMAT_LC1'))); ?>
 <?php endif; ?>
+
 <?php if ($params->get('show_publish_date')) : ?>
-		
-		<?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE_ON', JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC1'))); ?>
-		
+		/ <?php echo JText::sprintf(JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC1'))); ?>
 <?php endif; ?>
+
 <?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
-	
 		<?php $author = $this->item->author; ?>
 		<?php $author = ($this->item->created_by_alias ? $this->item->created_by_alias : $author);?>
 		<?php if (!empty($this->item->contact_link ) &&  $params->get('link_author') == true) : ?>
-			<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', JHtml::_('link', $this->item->contact_link, $author)); ?>
+			/ <?php echo JText::sprintf(JHtml::_('link', $this->item->contact_link, $author)); ?>
 		<?php else :?>
-			<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
+			/ <?php echo JText::sprintf($author); ?>
 		<?php endif; ?>
-	
 <?php endif; ?>
+
 <?php if ($params->get('show_hits')) : ?>
-		
-		<?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', $this->item->hits); ?>
-		
-<?php endif; ?>
-<?php if (($params->get('show_author')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_modify_date')) or ($params->get('show_publish_date')) or ($params->get('show_parent_category')) or ($params->get('show_hits'))) :?>
- 	</dl>
+		/ <?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', $this->item->hits); ?>
 <?php endif; ?>
 
 
@@ -169,6 +152,6 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 	|| ((strtotime($this->item->publish_down) < strtotime(JFactory::getDate())) && $this->item->publish_down != JFactory::getDbo()->getNullDate())) : ?>
 </div>
 <?php endif; ?>
-
+</div>
 <div class="item-separator"></div>
 <?php echo $this->item->event->afterDisplayContent; ?>

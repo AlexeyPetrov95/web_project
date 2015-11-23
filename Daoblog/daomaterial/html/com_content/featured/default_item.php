@@ -22,40 +22,44 @@ $templateparams = $app->getTemplate(true)->params;
 	|| ((strtotime($this->item->publish_down) < strtotime(JFactory::getDate())) && $this->item->publish_down != JFactory::getDbo()->getNullDate())) : ?>
 <div class="system-unpublished">
 <?php endif; ?>
+
+<div class="card-image waves-effect waves-block waves-light">
+<?php  if (isset($images->image_intro) and !empty($images->image_intro)) { ?>
+	<?php $imgfloat = (empty($images->float_intro)) ? $params->get('float_intro') : $images->float_intro; ?>
+	
+	<img
+		<?php if ($images->image_intro_caption):
+			echo 'class="caption"'.' title="' .htmlspecialchars($images->image_intro_caption) .'"';
+		endif; ?>
+		src="<?php echo htmlspecialchars($images->image_intro); ?>" alt="<?php echo htmlspecialchars($images->image_intro_alt); ?>"/>
+		<?php } else { ?>
+		<img src="images/headers/windows.jpg"/>
+	<?php } ?>
+</div>
+	
+	
+<?php if ($canEdit) : ?>
+	<ul class="card-action-buttons">
+		<?php if ($canEdit) : ?>
+		<li class="edit-icon btn-floating waves-effect waves-light red">
+			<?php echo JHtml::_('icon.edit', $this->item, $params, array(), true); ?>
+		</li>
+		<?php endif; ?>
+	</ul>
+<?php endif; ?>
+
 <div class="card-content">
 <?php if ($params->get('show_title')) : ?>
-	<h2>
-		<span class="card-title">
+	<h2 class="card-title">
 			<?php if ($params->get('link_titles') && $params->get('access-view')) : ?>
 				<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>">
 				<?php echo $this->escape($this->item->title); ?></a>
 			<?php else : ?>
 				<?php echo $this->escape($this->item->title); ?>
 			<?php endif; ?>
-		</span>
 	</h2>
 <?php endif; ?>
 
-<?php if ($params->get('show_print_icon') || $params->get('show_email_icon') || $canEdit) : ?>
-	<ul class="actions">
-		<?php if ($params->get('show_print_icon')) : ?>
-		<li class="print-icon">
-			<?php echo JHtml::_('icon.print_popup', $this->item, $params, array(), true); ?>
-		</li>
-		<?php endif; ?>
-		<?php if ($params->get('show_email_icon')) : ?>
-		<li class="email-icon">
-			<?php echo JHtml::_('icon.email', $this->item, $params, array(), true); ?>
-		</li>
-		<?php endif; ?>
-
-		<?php if ($canEdit) : ?>
-		<li class="edit-icon">
-			<?php echo JHtml::_('icon.edit', $this->item, $params, array(), true); ?>
-		</li>
-		<?php endif; ?>
-	</ul>
-<?php endif; ?>
 
 <?php if (!$params->get('show_intro')) : ?>
 	<?php echo $this->item->event->afterDisplayTitle; ?>
@@ -65,26 +69,11 @@ $templateparams = $app->getTemplate(true)->params;
 
 <?php // to do not that elegant would be nice to group the params ?>
 
-
-
-<?php  if (isset($images->image_intro) and !empty($images->image_intro)) : ?>
-	<?php $imgfloat = (empty($images->float_intro)) ? $params->get('float_intro') : $images->float_intro; ?>
-	<div class="img-intro-<?php echo htmlspecialchars($imgfloat); ?>">
-	<img
-		<?php if ($images->image_intro_caption):
-			echo 'class="caption"'.' title="' .htmlspecialchars($images->image_intro_caption) .'"';
-		endif; ?>
-		src="<?php echo htmlspecialchars($images->image_intro); ?>" alt="<?php echo htmlspecialchars($images->image_intro_alt); ?>"/>
-	</div>
-<?php endif; ?>
-
 <?php echo $this->item->introtext; ?>
 
 </div>
 
 <div class="card-action">
-<?php if (($params->get('show_author')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_modify_date')) or ($params->get('show_publish_date')) or ($params->get('show_parent_category')) or ($params->get('show_hits'))) : ?>
-<?php endif; ?>
   
 <?php if ($params->get('show_parent_category') && $this->item->parent_id != 1) : ?>
 			<?php $title = $this->escape($this->item->parent_title);
@@ -134,8 +123,6 @@ $templateparams = $app->getTemplate(true)->params;
 		/ <?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', $this->item->hits); ?>
 <?php endif; ?>
 
-<?php if (($params->get('show_author')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_modify_date')) or ($params->get('show_publish_date')) or ($params->get('show_parent_category')) or ($params->get('show_hits'))) : ?>
-<?php endif; ?>
 
 <?php if ($params->get('show_readmore') && $this->item->readmore) :
 	if ($params->get('access-view')) :

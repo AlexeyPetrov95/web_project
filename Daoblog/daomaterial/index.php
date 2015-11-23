@@ -16,16 +16,16 @@ defined('_JEXEC') or die('Unauthorized Access');
 	<header>
 		<nav class="blue">
 			<div class="nav-wrapper">
-				<a class="brand-logo">DaoBlog</a>
-				<small class="description">
-					Дзен... и сайты.
-				</small>
+				<a href="/" class="brand-logo">DaoBlog</a>
 				<?php if ($this->countModules('position-1')) { ?>
 					<div class="right">
 						<jdoc:include type="modules" name="position-1" style="none" />
+						<?php if ($this->countModules('profile')) { ?>
+						<jdoc:include type="modules" name="profile" style="none"/>
+						<?php } ?>
 					</div>
 				<?php } ?>
-				
+
 			</div>
 		</nav>
 	</header>
@@ -43,13 +43,13 @@ defined('_JEXEC') or die('Unauthorized Access');
 	
 		<div class="container">
 			<div class="row">
-				<div class="col m<?php if ($this->countModules('position-7')) { ?>9<?php } else { ?>12<?php } ?>">
+				<div class="col l<?php if ($this->countModules('position-7')) { ?>9<?php } else { ?>12<?php } ?> m<?php if ($this->countModules('position-7')) { ?>6<?php } else { ?>12<?php } ?>">
 					<div class="content-section">
 						<jdoc:include type="component" />
 					</div>
 				</div>
 				<?php if ($this->countModules('position-7')) { ?>
-				<div class="col m3">
+				<div class="col l3 m6 s12">
 					<div class="sidebar-section">
 						<jdoc:include type="modules" name="position-7" style="sidebar" />
 					</div>
@@ -57,38 +57,33 @@ defined('_JEXEC') or die('Unauthorized Access');
 				<?php } ?>
 			</div>
 		</div>
-
-	<footer class="theme-footer">
-		<div class="container">
+	<footer class="page-footer blue">
+		<div class="container hide-on-small-only">
 			<div class="row">		
-
-				<div class="col l3">
+				<div class="col l4">
 					<?php if ($this->countModules('footer-1')) { ?>
 					<jdoc:include type="modules" name="footer-1" style="footer" />
 					<?php } ?>
 				</div>
-
-				<div class="col l3">
+				<div class="col l4">
 					<?php if ($this->countModules('footer-2')) { ?>
 					<jdoc:include type="modules" name="footer-2" style="footer" />
 					<?php } ?>
 				</div>
-
-				<div class="col l3">
+				<div class="col l4">
 					<?php if ($this->countModules('footer-3')) { ?>
 					<jdoc:include type="modules" name="footer-3" style="footer" />
 					<?php } ?>
 				</div>
-
-				<div class="col l3">
-					<?php if ($this->countModules('footer-4')) { ?>
-					<jdoc:include type="modules" name="footer-4" style="footer" />
-					<?php } ?>
-				</div>
-
 			</div>
 		</div>
-	</footer>
+    <div class="footer-copyright">
+      <div class="container">
+        <span>Copyright &copy; Ever <a target="_blank" href="http://daoblog.ru" class="grey-text text-lighten-4">Daoblog</a> All rights reserved.</span>
+        <span class="right">Design by <a href="http://daoblog.ru" class="grey-text text-lighten-4">HiopsNerevar</a></span>
+        </div>
+    </div>
+  </footer>
 <?php if ($this->countModules('modal1')) { ?>
 	<div id="modal1" class="modal">
 		<div class="modal-content">
@@ -100,6 +95,7 @@ defined('_JEXEC') or die('Unauthorized Access');
 	</div>
 <?php } ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/js/materialize.min.js" type="text/javascript" charset="utf-8"></script>
 <script>
 $(document).ready(function(){

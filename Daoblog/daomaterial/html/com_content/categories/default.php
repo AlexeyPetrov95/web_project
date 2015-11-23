@@ -14,6 +14,8 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 
 JHtml::_('behavior.caption');
 ?>
+<div class="card white">
+	<div class="card-content">
 <div class="categories-list<?php echo $this->pageclass_sfx;?>">
 <?php if ($this->params->get('show_page_heading')) : ?>
 <h1>
@@ -37,4 +39,4 @@ JHtml::_('behavior.caption');
 echo $this->loadTemplate('items');
 ?>
 </div>
-
+</div></div>

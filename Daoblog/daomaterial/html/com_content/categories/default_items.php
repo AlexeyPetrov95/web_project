@@ -12,7 +12,7 @@ defined('_JEXEC') or die;
 $class = ' class="first"';
 if (count($this->items[$this->parent->id]) > 0 && $this->maxLevelcat != 0) :
 ?>
-<ul>
+<ul class="collapsible" data-collapsible="expandable">
 <?php foreach ($this->items[$this->parent->id] as $id => $item) : ?>
 	<?php
 	if ($this->params->get('show_empty_categories_cat') || $item->numitems || count($item->getChildren())) :
@@ -23,35 +23,34 @@ if (count($this->items[$this->parent->id]) > 0 && $this->maxLevelcat != 0) :
 	?>
 	<li<?php echo $class; ?>>
 	<?php $class = ''; ?>
-		<h3 class="item-title"><a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($item->id));?>">
-			<?php echo $this->escape($item->title); ?></a>
+		<div class="collapsible-header"><h3 class="item-title">
+			<a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($item->id));?>"><?php echo $this->escape($item->title); ?></a>
+		<?php if ($this->params->get('show_cat_num_articles_cat') == 1) :?>
+			<div class="chip"><?php echo JText::_('COM_CONTENT_NUM_ITEMS'); ?> <?php echo $item->numitems; ?></div>
+		<?php endif; ?>
 		</h3>
 
-		<?php if ($this->params->get('show_subcat_desc_cat') == 1) :?>
-		<?php if ($item->description) : ?>
-			<div class="category-desc">
-				<?php echo JHtml::_('content.prepare', $item->description); ?>
-			</div>
-		<?php endif; ?>
-        <?php endif; ?>
-		<?php if ($this->params->get('show_cat_num_articles_cat') == 1) :?>
-			<dl class="article-count"><dt>
-				<?php echo JText::_('COM_CONTENT_NUM_ITEMS'); ?></dt>
-				<dd><?php echo $item->numitems; ?></dd>
-			</dl>
-		<?php endif; ?>
+		</div>
+		<div class="collapsible-body">
+			<?php if ($this->params->get('show_subcat_desc_cat') == 1) :?>
+			<?php if ($item->description) : ?>
+				<div class="category-desc">
+					<?php echo JHtml::_('content.prepare', $item->description); ?>
+				</div>
+			<?php endif; ?>
+			<?php endif; ?>
 
-		<?php if (count($item->getChildren()) > 0) :
-			$this->items[$item->id] = $item->getChildren();
-			$this->parent = $item;
-			$this->maxLevelcat--;
-			echo $this->loadTemplate('items');
-			$this->parent = $item->getParent();
-			$this->maxLevelcat++;
-		endif; ?>
-
+			<?php if (count($item->getChildren()) > 0) :
+				$this->items[$item->id] = $item->getChildren();
+				$this->parent = $item;
+				$this->maxLevelcat--;
+				echo $this->loadTemplate('items');
+				$this->parent = $item->getParent();
+				$this->maxLevelcat++;
+			endif; ?>
+		</div>
 	</li>
 	<?php endif; ?>
 <?php endforeach; ?>
 </ul>
-<?php endif; ?>
+<?php endif; ?>   

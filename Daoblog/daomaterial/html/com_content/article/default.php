@@ -22,6 +22,30 @@ $params = $this->item->params;
 ?>
 <article class="item-page<?php echo $this->pageclass_sfx?>">
 <div class="card white">
+
+<div class="card-image waves-effect waves-block waves-light">
+<?php  if (isset($images->image_intro) and !empty($images->image_intro)) { ?>
+	<?php $imgfloat = (empty($images->float_intro)) ? $params->get('float_intro') : $images->float_intro; ?>
+	
+	<img
+		<?php if ($images->image_intro_caption):
+			echo 'class="caption"'.' title="' .htmlspecialchars($images->image_intro_caption) .'"';
+		endif; ?>
+		src="<?php echo htmlspecialchars($images->image_intro); ?>" alt="<?php echo htmlspecialchars($images->image_intro_alt); ?>"/>
+		<?php } else { ?>
+		<img src="images/headers/windows.jpg"/>
+	<?php } ?>
+</div>
+
+<?php if ($canEdit) : ?>
+	<ul class="card-action-buttons">
+		<?php if ($canEdit) : ?>
+		<li class="edit-icon btn-floating waves-effect waves-light red">
+			<?php echo JHtml::_('icon.edit', $this->item, $params, array(), true); ?>
+		</li>
+		<?php endif; ?>
+	</ul>
+<?php endif; ?>
 	<div class="card-content">
 <?php if ($this->params->get('show_page_heading') and $params->get('show_title')) :?>
 <hgroup>
@@ -32,41 +56,13 @@ if (!empty($this->item->pagination) && $this->item->pagination && !$this->item->
 {
 	echo $this->item->pagination;
 }
-
 if ($params->get('show_title')) : ?>
-		<h2>
+		<h1>
 			<?php echo $this->escape($this->item->title); ?>
-		</h2>
+		</h1>
 <?php endif; ?>
 <?php if ($this->params->get('show_page_heading') and $params->get('show_title')) :?>
 </hgroup>
-<?php endif; ?>
-
-<?php if ($params->get('access-edit') ||  $params->get('show_print_icon') || $params->get('show_email_icon')) : ?>
-		<ul class="actions">
-		<?php if (!$this->print) : ?>
-				<?php if ($params->get('show_print_icon')) : ?>
-				<li class="print-icon">
-						<?php echo JHtml::_('icon.print_popup', $this->item, $params, array(), true); ?>
-				</li>
-				<?php endif; ?>
-
-				<?php if ($params->get('show_email_icon')) : ?>
-				<li class="email-icon">
-						<?php echo JHtml::_('icon.email', $this->item, $params, array(), true); ?>
-				</li>
-				<?php endif; ?>
-				<?php if ($this->user->authorise('core.edit', 'com_content.article.'.$this->item->id)) : ?>
-						<li class="edit-icon">
-							<?php echo JHtml::_('icon.edit', $this->item, $params, array(), true); ?>
-						</li>
-					<?php endif; ?>
-		<?php else : ?>
-				<li>
-						<?php echo JHtml::_('icon.print_screen', $this->item, $params, array(), true); ?>
-				</li>
-		<?php endif; ?>
-		</ul>
 <?php endif; ?>
 
 	<?php  if (!$params->get('show_intro')) :
@@ -90,17 +86,7 @@ if ($params->get('show_title')) : ?>
 
 	<?php echo $this->loadTemplate('links'); ?>
 <?php endif; ?>
-	<?php  if (isset($images->image_fulltext) and !empty($images->image_fulltext)) : ?>
-	<?php $imgfloat = (empty($images->float_fulltext)) ? $params->get('float_fulltext') : $images->float_fulltext; ?>
 
-	<div class="img-fulltext-<?php echo htmlspecialchars($imgfloat); ?>">
-	<img
-		<?php if ($images->image_fulltext_caption):
-			echo 'class="caption"'.' title="' .htmlspecialchars($images->image_fulltext_caption) .'"';
-		endif; ?>
-		src="<?php echo htmlspecialchars($images->image_fulltext); ?>" alt="<?php echo htmlspecialchars($images->image_fulltext_alt); ?>"/>
-	</div>
-	<?php endif; ?>
 <?php
 if (!empty($this->item->pagination) AND $this->item->pagination AND !$this->item->paginationposition AND !$this->item->paginationrelative):
 	echo $this->item->pagination;
@@ -108,10 +94,8 @@ endif;
 ?>
 	<?php echo $this->item->text; ?>
 </div>
-<div class="card-action">
-<?php if ($useDefList) : ?>
-<?php endif; ?>
 
+<div class="card-action">
 <?php if ($params->get('show_parent_category') && $this->item->parent_id != 1) : ?>
 			<?php $title = $this->escape($this->item->parent_title);
 				$title = ($title) ? $title : JText::_('JGLOBAL_UNCATEGORISED');
@@ -160,8 +144,6 @@ endif;
 		/ <?php echo JText::sprintf('COM_CONTENT_ARTICLE_HITS', $this->item->hits); ?>
 <?php endif; ?>
 
-<?php if ($useDefList) : ?>
-<?php endif; ?>	
 </div>
 </div>
 <?php // TAGS ?>

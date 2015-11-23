@@ -41,17 +41,17 @@ function modChrome_sidebar($module, &$params, &$attribs)
 {
 	if ($module->content)
 	{	
-		echo "<div class=\"card panel-default " . htmlspecialchars($params->get('moduleclass_sfx')) . "\">";
+		echo "<div class=\"card\"><div class=\"card-content " . htmlspecialchars($params->get('moduleclass_sfx')) . "\">";
 			echo "<div class=\"card-title " . htmlspecialchars($params->get('moduleclass_sfx')) . "\">";
 			if ($module->showtitle)
 			{
-				echo "<h3>" . $module->title . "</h3>";
+				echo "" . $module->title . "";
 			}
 			echo "</div>";
 
-			echo "<div class=\"card-content " . htmlspecialchars($params->get('moduleclass_sfx')) . "\">";
+			echo "<div class=" . htmlspecialchars($params->get('moduleclass_sfx')) . ">";
 				echo $module->content;
 			echo "</div>";
-		echo "</div>";
+		echo "</div></div>";
 	}
 }

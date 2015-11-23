@@ -18,6 +18,8 @@ JHtml::_('behavior.caption');
 
 $pageClass = $this->params->get('pageclass_sfx');
 ?>
+<div class="card white">
+	<div class="card-content">
 <section class="category-list<?php echo $this->pageclass_sfx;?>">
 <?php if ($this->params->get('show_page_heading')) : ?>
 <?php if ($this->params->get('show_page_heading') and ($this->params->get('show_category_title') or $this->params->get('page_subheading'))) : ?>
@@ -87,4 +89,5 @@ $pageClass = $this->params->get('pageclass_sfx');
 	</div>
 
 </section>
-
+</div>
+</div>
