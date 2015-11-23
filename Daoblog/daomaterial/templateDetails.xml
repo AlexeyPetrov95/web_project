@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="template" client="site" method="upgrade">
+	<name>daomaterial</name>
+	<version>1.0</version>
+	<creationDate>20.11.2015</creationDate>
+	<author>Hiops</author>
+	<authorEmail></authorEmail>
+	<copyright>Copyright (C) 2015 Hiops. All rights reserved.</copyright>
+	<description>No mercy</description>
+	<files>
+		<folder>css</folder>
+		<folder>font</folder>
+		<folder>html</folder>
+		<folder>img</folder>
+		<folder>js</folder>
+		<file>component.php</file>
+		<file>error.php</file>
+		<file>favicon.ico</file>
+		<file>index.php</file>
+		<file>templateDetails.xml</file>
+		<file>template_preview.png</file>
+		<file>template_thumbnail.png</file>
+
+	</files>
+	<positions>
+		<position>position-top</position>
+		<position>position-1</position>
+		<position>position-2</position>
+		<position>position-7</position>
+		<position>footer-1</position>
+		<position>footer-2</position>
+		<position>footer-3</position>
+		<position>footer-4</position>
+	</positions>
+</extension>
