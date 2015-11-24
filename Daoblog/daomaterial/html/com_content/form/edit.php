@@ -1,11 +1,4 @@
 <?php
-/**
- * @package     Joomla.Site
- * @subpackage  Templates.beez3
- *
- * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- */
 
 // no direct access
 defined('_JEXEC') or die;
@@ -36,6 +29,8 @@ endif;
 		}
 	}
 </script>
+<div class="card white">
+	<div class="card-content">
 <div class="edit item-page<?php echo $this->pageclass_sfx; ?>">
 <?php if ($params->get('show_page_heading')) : ?>
 <h1>
@@ -51,7 +46,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('title'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('title'); ?>
 				</div>
 			</div>
@@ -61,7 +56,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('alias'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('alias'); ?>
 				</div>
 			</div>
@@ -92,7 +87,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('image_intro_alt', 'images'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('image_intro_alt', 'images'); ?>
 				</div>
 			</div>
@@ -100,7 +95,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('image_intro_caption', 'images'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('image_intro_caption', 'images'); ?>
 				</div>
 			</div>
@@ -108,7 +103,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('float_intro', 'images'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('float_intro', 'images'); ?>
 				</div>
 			</div>
@@ -116,7 +111,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('image_fulltext', 'images'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('image_fulltext', 'images'); ?>
 				</div>
 			</div>
@@ -124,7 +119,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('image_fulltext_alt', 'images'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('image_fulltext_alt', 'images'); ?>
 				</div>
 			</div>
@@ -132,7 +127,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('image_fulltext_caption', 'images'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('image_fulltext_caption', 'images'); ?>
 				</div>
 			</div>
@@ -140,7 +135,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('float_fulltext', 'images'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('float_fulltext', 'images'); ?>
 				</div>
 			</div>
@@ -148,7 +143,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('urla', 'urls'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('urla', 'urls'); ?>
 				</div>
 			</div>
@@ -156,12 +151,12 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('urlatext', 'urls'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('urlatext', 'urls'); ?>
 				</div>
 			</div>
 			<div class="control-group">
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('targeta', 'urls'); ?>
 				</div>
 			</div>
@@ -169,7 +164,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('urlb', 'urls'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('urlb', 'urls'); ?>
 				</div>
 			</div>
@@ -177,12 +172,12 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('urlbtext', 'urls'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('urlbtext', 'urls'); ?>
 				</div>
 			</div>
 			<div class="control-group">
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('targetb', 'urls'); ?>
 				</div>
 			</div>
@@ -190,7 +185,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('urlc', 'urls'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('urlc', 'urls'); ?>
 				</div>
 			</div>
@@ -198,12 +193,12 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('urlctext', 'urls'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('urlctext', 'urls'); ?>
 				</div>
 			</div>
 			<div class="control-group">
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('targetc', 'urls'); ?>
 				</div>
 			</div>
@@ -216,7 +211,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('catid'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('catid'); ?>
 				</div>
 			</div>
@@ -224,7 +219,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('tags'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('tags'); ?>
 				</div>
 			</div>
@@ -232,7 +227,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('created_by_alias'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('created_by_alias'); ?>
 				</div>
 			</div>
@@ -242,7 +237,7 @@ endif;
 					<div class="control-label">
 						<?php echo $this->form->getLabel('state'); ?>
 					</div>
-					<div class="controls">
+					<div class="input-field">
 						<?php echo $this->form->getInput('state'); ?>
 					</div>
 				</div>
@@ -250,7 +245,7 @@ endif;
 					<div class="control-label">
 						<?php echo $this->form->getLabel('featured'); ?>
 					</div>
-					<div class="controls">
+					<div class="input-field">
 						<?php echo $this->form->getInput('featured'); ?>
 					</div>
 				</div>
@@ -258,7 +253,7 @@ endif;
 					<div class="control-label">
 						<?php echo $this->form->getLabel('publish_up'); ?>
 					</div>
-					<div class="controls">
+					<div class="input-field">
 						<?php echo $this->form->getInput('publish_up'); ?>
 					</div>
 				</div>
@@ -266,7 +261,7 @@ endif;
 					<div class="control-label">
 						<?php echo $this->form->getLabel('publish_down'); ?>
 					</div>
-					<div class="controls">
+					<div class="input-field">
 						<?php echo $this->form->getInput('publish_down'); ?>
 					</div>
 				</div>
@@ -275,7 +270,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('access'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('access'); ?>
 				</div>
 			</div>
@@ -283,7 +278,7 @@ endif;
 				<div class="control-group">
 					<div class="control-label">
 					</div>
-					<div class="controls">
+					<div class="input-field">
 						<?php echo JText::_('COM_CONTENT_ORDERING'); ?>
 					</div>
 				</div>
@@ -296,7 +291,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('language'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('language'); ?>
 				</div>
 			</div>
@@ -308,7 +303,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('metadesc'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('metadesc'); ?>
 				</div>
 			</div>
@@ -316,7 +311,7 @@ endif;
 				<div class="control-label">
 					<?php echo $this->form->getLabel('metakey'); ?>
 				</div>
-				<div class="controls">
+				<div class="input-field">
 					<?php echo $this->form->getInput('metakey'); ?>
 				</div>
 			</div>
@@ -330,3 +325,4 @@ endif;
 	</fieldset>
 </form>
 </div>
+</div></div>

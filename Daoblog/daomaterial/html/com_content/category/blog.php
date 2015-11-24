@@ -78,9 +78,9 @@ $cparams = JComponentHelper::getParams('com_media');
 		<?php $rowcount = ((int) $key % (int) $this->columns) + 1; ?>
 		<?php if ($rowcount == 1) : ?>
 			<?php $row = $counter / $this->columns; ?>
-			<div class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row; ?>">
+			<div class="row">
 		<?php endif; ?>
-					<article class="leading-<?php echo $leadingcount; ?><?php echo $item->state == 0 ? 'system-unpublished' : null; ?>">
+					<article class="col l6 m12 s12 leading-<?php echo $leadingcount; ?><?php echo $item->state == 0 ? 'system-unpublished' : null; ?>">
 						<div class="card white">
 							<?php
 								$this->item = &$item;

@@ -42,7 +42,7 @@ $templateparams = $app->getTemplate(true)->params;
 	<ul class="card-action-buttons">
 		<?php if ($canEdit) : ?>
 		<li class="edit-icon btn-floating waves-effect waves-light red">
-			<?php echo JHtml::_('icon.edit', $this->item, $params, array(), true); ?>
+			<i class="material-icons">create</i><?php echo JHtml::_('icon.edit', $this->item, $params, array(), true); ?>
 		</li>
 		<?php endif; ?>
 	</ul>
