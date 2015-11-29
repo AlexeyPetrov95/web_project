@@ -1,0 +1,37 @@
+<% layout('./layouts/layoutMain') %>
+<% script('javascripts/reg.js') %>
+
+<div id ="center">
+    <form method="post" name="myForm" action="/registration">
+        <ul>
+            <li>
+                <label class="text" for="name">Имя:</label>
+                <input type="text" id ="name" class="input" name="name" required pattern="^[a-zA-Z]+$">
+            </li>
+
+            <li>
+                <label class="text" for="lastname">Фамилия:</label>
+                <input type="text" id="lastname" class="input" name ="lastname" required pattern="^[a-zA-Z]+$">
+            </li>
+
+            <li>
+                <label class="text" for="login">Ник: <span id ="error"><%=check%></span> </label>
+                <input type="text" id="login" class="input" name="login" required pattern="^[a-zA-Z0-9]+$">
+            </li>
+
+            <li>
+                <label class="text" for="password" >Пароль:</label>
+                <input type="password" id="password"  class="input" name="password">
+            </li>
+
+            <li>
+                <label class="text" for="confirm"> Повтердите пароль:</label>
+                <input type="password" id = "confirm" class="input" name="confirmpassword">
+            </li>
+
+            <li>
+                <input type="submit" name ="submit" id="submit" value="OK" disabled>
+            </li>
+        </ul>
+    </form>
+</div>

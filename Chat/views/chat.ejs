@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel='stylesheet' href='/stylesheets/chat.css' />
+    <script src="/javascripts/message.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%- user %></title>
+    <link rel="icon" href="http://chat.daoblog.ru/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://chat.daoblog.ru/images/favicon.ico" type="image/x-icon" />
+</head>
+    <body>
+
+        <audio id="chatAudio" preload="auto" style="display: none">
+            <source src="http://chat.daoblog.ru/ring.mp3">
+        </audio>
+
+        <a href="/logout" id="logout">logout</a></div>
+        <div id="body">
+            <div class="chat">
+                <% if (result.rowCount != 0){ %>
+                    <% for (var i = 0; i < result.rowCount; i++){ %>
+                        <% if( user == result.rows[i].users){ %>
+                            <div class="message m1">
+                                <div class="user1">
+                                    <%- user %>
+                                </div>
+                                <div class="conteiner">
+                                    <div class="avatar">
+                                        <img src="http://chat.daoblog.ru/images/avatars/<%- user %>.jpg" width="40px" height="40px">
+                                    </div>
+                                    <div class="first">
+                                        <%- result.rows[i].message %>
+                                        <div class ="time">
+                                            <%- result.rows[i].time_message %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }else{ %>
+                            <div class="message m2">
+                                <div class="user2">
+                                    <%- result.rows[i].users %>
+                                </div>
+                                <div class="conteiner">
+                                    <div class="second">
+                                        <%- result.rows[i].message %>
+                                        <div class ="time">
+                                            <%- result.rows[i].time_message %>
+                                        </div>
+                                    </div>
+									 <div class="avatar">
+                                        <img src="http://chat.daoblog.ru/images/avatars/<%- result.rows[i].users %>.jpg" width="40px" height="40px">
+                                    </div>
+                                </div>
+                            </div>
+                       <% } %>
+                  <% } %>
+                <% }%>
+            </div>
+			<div id="dialog">
+			<div id="system">
+			<div id="enter"></div>
+			</div>
+			<div id="online"></div>
+			</div>
+            <div class="input">
+                <textarea id="input" wrap="physicalasd" autofocus onkeydown="key(event)"></textarea>
+                <input type="submit" value="OK" id="submit" onclick="add()">
+            </div>
+        </div>
+
+        <script>
+            var socket = io();
+            var date = new Date();
+
+            function key(e) {
+                var check = false;
+                if (e.keyCode == 13 && e.shiftKey) {
+                    check = true;
+                }
+                if (e.keyCode == 13 && !check) {
+                    e.preventDefault();
+                    add();
+                }
+            };
+
+            function checkTime(date){
+                if( date < 10 ){
+                    date = '0'+ date;
+                }
+                return date;
+            };
+
+            function add() {
+                var input = $('#input');
+                var text = input.val();
+
+                if(text == ''){
+                    return false;
+                }
+
+                input.val('');
+                var id = document.location.href.split('/');
+                var user = id[4];
+
+                socket.emit('message', text, user, function (data) {
+                    var date = new Date();
+                    $('.chat').append('<div class="message m1">'
+                    + '<div class="user1">'+ '<%- user %>' + '</div>'
+                    + '<div class="conteiner">'
+                    + '<div class="avatar"><img src="http://chat.daoblog.ru/images/avatars/<%- user %>.jpg" width="40px" height="40px"></div><div class="first">' + data.replace(/\n/g, "<br />") + '<div class ="time">'+checkTime(date.getHours())+':'+checkTime(date.getMinutes())+':'+checkTime(date.getSeconds())+'</div></div>'
+                    + '</div>'
+                    + '</div>');
+
+                    var height = $('.chat')[0].scrollHeight;
+                    $('.chat').scrollTop(height);
+                });
+                return false;
+            };
+			
+			
+            socket.on('connect', function(){
+                $('#enter').text('Вы присоединились к чату');
+                var height = $('.chat')[0].scrollHeight;
+                $('.chat').scrollTop(height);
+            });
+
+            socket.on('new_user', function (id) {
+                $('#enter').text('К чату присоединился: ' + id);
+				$('#online').text(id);
+            });
+			
+
+            socket.on('delete_user', function(id){
+                $('#enter').text(id + ' покинул чат');
+            });
+
+            socket.on('message', function(text,user){
+                $('#chatAudio')[0].play();
+                var date = new Date();
+                $('.chat').append('<div class="message m2">'
+                + '<div class="user2">'+ user+'</div>'
+                + '<div class="conteiner">'
+                + '<div class="second"> ' + text.replace(/\n/g, "<br />") + '<div class="time">'+checkTime(date.getHours())+':'+checkTime(date.getMinutes())+':'+checkTime(date.getSeconds())+'</div></div><div class="avatar"><img src="http://chat.daoblog.ru/images/avatars/'+ user+'.jpg" width="40px" height="40px"></div>'
+                + '</div>'
+                + '</div>');
+            });
+
+            socket.on('disconnect', function(){
+                $('#enter').text('Соединения потеряно');
+            });
+        </script>
+
+    </body>
+</html>

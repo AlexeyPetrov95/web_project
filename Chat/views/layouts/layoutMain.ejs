@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/reset-css.css'>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <%-scripts%>
+  </head>
+  <body>
+      <section id="block">
+        <%- body %>
+      </section>
+    <footer>
+      <div id="social">
+        <a href="https://facebook.com" target = "_blank" class="socialnet"><img src="/images/Facebook.png"/></a>
+        <a href="https://plus.google.com" target = "_blank" class="socialnet"><img src="/images/Google+.png"/></a>
+        <a href="https://twitter.com" target = "_blank" class="socialnet">  <img src="/images/Twitter.png"/></a>
+      </div>
+    </footer>
+  </body>
+</html>

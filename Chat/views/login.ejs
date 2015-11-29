@@ -1,0 +1,22 @@
+<% layout('./layouts/layoutMain') %>
+<% script('javascripts/login.js')%>
+<div id="center">
+    <form method="post" name="login" action="/login">
+        <ul>
+            <li>
+                <label class="text" for="login">Ник:</label>
+                <input type="text" id="login" class="input" name="login">
+            </li>
+
+            <li>
+                <label class="text" for="password">Пароль:</label>
+                <input type="password" id="password" class="input" name="password">
+            </li>
+
+            <li>
+                <input type="submit" name ="submit" id="submitForLogin" value="OK" disabled>
+            </li>
+        </ul>
+    </form>
+</div>
+
