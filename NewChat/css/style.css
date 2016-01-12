@@ -58,6 +58,11 @@ html {
    }
 
 nav {background: #fff}
+
+.filters li:hover {
+    background: #8ED9F9;
+}
+
 .dialog-title {
     width: 40%;
     margin-left: 350px;
@@ -173,6 +178,7 @@ span.online-icon {
 }
 .filters li {
     float: left;
+    text-align: center;
 }
 
 .filters li i {
@@ -244,9 +250,6 @@ i.active.material-icons.mdi-action-delete {
     margin: 20px 50px;
     width: 50%;
 }
-
-
-
 
 
 
