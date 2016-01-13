@@ -1,0 +1,59 @@
+.input-field label {
+ color: #42c3fa;
+}
+.input-field input[type=email]:focus + label {
+ color: #42c3fa;
+}
+.input-field input[type=email]:focus {
+ border-bottom: 1px solid #42c3fa;
+ box-shadow: 0 1px 0 0 #42c3fa;
+}
+.input-field input[type=email].valid {
+ border-bottom: 1px solid #42c3fa;
+ box-shadow: 0 1px 0 0 #42c3fa;
+}
+.input-field input[type=email].invalid {
+ border-bottom: 1px solid #42c3fa;
+ box-shadow: 0 1px 0 0 #42c3fa;
+}
+.input-field .prefix.active {
+ color: #42c3fa;
+}
+.input-field input[type=password]:focus + label {
+ color: #42c3fa;
+}
+.input-field input[type=password]:focus {
+ border-bottom: 1px solid #42c3fa;
+ box-shadow: 0 1px 0 0 #42c3fa;
+}
+.input-field input[type=password].valid {
+ border-bottom: 1px solid #42c3fa;
+ box-shadow: 0 1px 0 0 #42c3fa;
+}
+.input-field input[type=password].invalid {
+ border-bottom: 1px solid #42c3fa;
+ box-shadow: 0 1px 0 0 #42c3fa;
+}
+.input-field .prefix.active {
+ color: #42c3fa;
+}
+   
+.reg-page .row {
+    margin-bottom: 0;
+}
+.reg-right {
+background:#42c3fa;
+}
+.reg-right,.reg-left {
+    height: 100vh;
+}
+.reg-card {
+	max-width: 400px;
+	margin: 40vh auto 0;
+}
+.logo.small.center {
+    position: absolute;
+    left: 50px;
+    top: 20px;
+    height: 70px;
+}
